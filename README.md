@@ -59,49 +59,88 @@ src/
 └── index.css            # Global styles
 ```
 
-## 🚀 Setup & Run Instructions
+## 🚀 How to Run This Project
 
 ### Prerequisites
 
-- Node.js 18+ 
-- npm or yarn
-- MetaMask or compatible Web3 wallet
-- Monad Testnet MON tokens (for gas fees)
+Before you begin, ensure you have:
+- **Node.js** (v18 or higher) - [Download here](https://nodejs.org/)
+- **MetaMask** browser extension - [Install here](https://metamask.io/)
+- **MON tokens** on Monad Testnet (for write transactions)
 
-### Installation
+### Step-by-Step Instructions
 
-1. **Clone the repository**
+#### Step 1: Clone the Repository
+```bash
+git clone https://github.com/rdprassy/DecentralisedApp.git
+cd DecentralisedApp
+```
+
+#### Step 2: Install Dependencies
+```bash
+npm install
+```
+
+#### Step 3: Start the Development Server
+```bash
+npm run dev
+```
+
+#### Step 4: Open the DApp
+Open your browser and navigate to:
+```
+http://localhost:5173
+```
+
+#### Step 5: Configure MetaMask for Monad Testnet
+1. Open MetaMask
+2. Click on the network dropdown
+3. Click "Add Network" → "Add a network manually"
+4. Enter the following details:
+
+| Field | Value |
+|-------|-------|
+| Network Name | Monad Testnet |
+| RPC URL | `https://testnet-rpc.monad.xyz` |
+| Chain ID | `10143` |
+| Currency Symbol | `MON` |
+| Block Explorer | `https://testnet.monadexplorer.com` |
+
+5. Click "Save"
+
+#### Step 6: Connect Your Wallet
+1. Click "Connect Injected" button in the DApp
+2. Approve the connection in MetaMask
+3. Switch to Monad Testnet if prompted
+
+#### Step 7: Use the DApp
+- **Read Value**: The current stored value displays automatically
+- **Write Value**: Enter a number, click "Set Value", and confirm in MetaMask
+
+### Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run compile` | Compile the smart contract |
+| `npm run deploy` | Deploy contract (requires .env with PRIVATE_KEY) |
+
+### Deploying Your Own Contract (Optional)
+
+1. Create a `.env` file:
    ```bash
-   git clone <your-repo-url>
-   cd Dapp
+   PRIVATE_KEY=your_private_key_here
    ```
 
-2. **Install dependencies**
+2. Compile and deploy:
    ```bash
-   npm install
+   npm run compile
+   npm run deploy
    ```
 
-3. **Configure the contract address**
-   
-   Update the `CONTRACT_ADDRESS` in `src/contracts/config.js` with your deployed contract address.
-
-4. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-
-5. **Open in browser**
-   
-   Navigate to `http://localhost:5173`
-
-### Deploying Your Own Contract
-
-1. Deploy `src/contracts/SimpleStorage.sol` to Monad Testnet using:
-   - [Remix IDE](https://remix.ethereum.org)
-   - Hardhat
-   - Foundry
-
-2. Update `CONTRACT_ADDRESS` in `src/contracts/config.js`
+3. The contract address will be automatically updated in the config
 
 ## 🌐 Monad Testnet Configuration
 
